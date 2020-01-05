@@ -87,7 +87,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT ost_ticket.number, ost_ticket.lastupdate, ost_ticket__cdata.subject, ost_user.name, ost_ticket__cdata.priority, ost_staff.lastname, ost_staff.firstname FROM `ost_ticket` INNER JOIN ost_ticket__cdata ON ost_ticket__cdata.ticket_id = ost_ticket.ticket_id INNER JOIN ost_user ON ost_user.id = ost_ticket.user_id INNER JOIN ost_ticket_priority ON ost_ticket_priority.priority_id = ost_ticket__cdata.priority INNER JOIN ost_staff ON ost_staff.staff_id = ost_ticket.staff_id WHERE closed IS NULL ORDER BY lastupdate DESC";
+$sql = "SELECT ost_ticket.number, ost_ticket.lastupdate, ost_ticket__cdata.subject, ost_user.name, ost_ticket_priority.priority, ost_staff.firstname, ost_staff.lastname FROM `ost_ticket` INNER JOIN ost_ticket__cdata ON ost_ticket__cdata.ticket_id = ost_ticket.ticket_id INNER JOIN ost_user ON ost_user.id = ost_ticket.user_id INNER JOIN ost_ticket_priority ON ost_ticket_priority.priority_id = ost_ticket__cdata.priority INNER JOIN ost_staff ON ost_staff.staff_id = ost_ticket.staff_id WHERE closed IS NULL ORDER BY lastupdate DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
