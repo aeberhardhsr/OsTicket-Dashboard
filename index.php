@@ -1,38 +1,74 @@
 <!DOCTYPE html>
 <html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/3/w3.css">
+
 <head>
     <title>OsTicket Dashboard</title>
     <link rel='icon' href='favico.ico' type='image/x-icon'/ >
 
 
 <style>
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700);
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.42em;
+    color:#A7A1AE;
+    background-color:#1F2739;
+}
+
 th, td {
     padding: 8px;
     text-align: left;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 3px solid #1F2739;
+    padding-bottom: 1%;
+	padding-top: 1%;
+    padding-left:1%;
 }
 
 table {
     border-collapse: collapse;
-    width: 80%;
+    width: 85%;
     margin: 0 auto;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    padding: 0 0 8em 0;
 }
 
-tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(odd){
+    background-color: #323C50;    
+}
+
+tr:nth-child(even) {
+	background-color: #2C3446;
+}
 
 th {
-    background-color: #4a69bb;
+    font-weight: bold;
+	font-size: 1.5em;
+    text-align: left;
     color: white;
+    background: #4DC3FA;
+}
+
+h1 {
+  font-size:3em; 
+  font-weight: 300;
+  line-height:1em;
+  text-align: center;
+  color: #4DC3FA;
 }
 
 h2 {
-  color: black;
-  font-family: verdana;
-  font-size: 250%;
+  font-size:1em; 
+  font-weight: 300;
   text-align: center;
-  
+  display: block;
+  line-height:1em;
+  padding-bottom: 2em;
+  color: #FB667A;
 }
 p  {
   color: black;
@@ -41,35 +77,17 @@ p  {
   text-align: center;
   font-style: normal;
 }
-  #demoFont {
-font-family: Impact, Charcoal, sans-serif;
-font-size: 25px;
-letter-spacing: 1px;
-word-spacing: 0.8px;
-color: #000000;
-font-weight: 400;
-text-decoration: overline solid rgb(68, 68, 68);
-font-style: normal;
-font-variant: small-caps;
-text-transform: capitalize;
-text-align: center;
-}
 
-img {
-  width: 25%; 
-  height: auto;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+td {
+    font-size: 1.3em;
+    color: #f7f5f7
 }
-
 
 </style>
 </head>
 <body>
 
-<h2>Wild&Küpfer AG</h2>
-    <p><i>Dashboard</i></p>
+<h1>Ticket Dashboard</h1>
 
 
 <span style="display:inline-block; width: 10px;"></span>
