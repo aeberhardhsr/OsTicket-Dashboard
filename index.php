@@ -87,14 +87,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT records.p_id, products.p_name, products.p_weight, products.p_price FROM (records INNER JOIN products ON records.p_id = products.p_id)";
+$sql = "SELECT ost_ticket.number, ost_ticket.lastupdate, ost_ticket__cdata.subject, ost_user.name, ost_ticket__cdata.priority, ost_staff.lastname, ost_staff.firstname FROM `ost_ticket` INNER JOIN ost_ticket__cdata ON ost_ticket__cdata.ticket_id = ost_ticket.ticket_id INNER JOIN ost_user ON ost_user.id = ost_ticket.user_id INNER JOIN ost_ticket_priority ON ost_ticket_priority.priority_id = ost_ticket__cdata.priority INNER JOIN ost_staff ON ost_staff.staff_id = ost_ticket.staff_id WHERE closed IS NULL ORDER BY lastupdate DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    echo "<table><tr><th>Product ID</th><th>Product Name</th><th>Weight</th><th>Price</th></tr>";
+    echo "<table><tr><th>Ticket Nummer</th><th>Zuletzt geändert</th><th>Betreff</th><th>Eröffnet von</th><th>Priorität</th><th>Zuständig</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["p_id"]. "</td><td>" . $row["p_name"]. "</td><td>" . $row["p_weight"]. "</td><td>" . $row["p_price"]. "</td></tr>";
+        echo "<tr><td>" . $row["number"]. "</td><td>" . $row["lastupdate"]. "</td><td>" . $row["p_weight"]. "</td><td>" . $row["p_price"]. "</td></tr>";
     }
     echo "</table>";
 } else {
@@ -102,29 +102,11 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-
-
-$dbc = mysqli_connect($servername, $username, $password, $dbname) or die('Error connecting to MySQL server.'); 
-if(isset($_POST['submit_button']))
-{
-    mysqli_query($dbc, 'TRUNCATE TABLE `records`');
-    header("Location: " . $_SERVER['PHP_SELF']);
-    exit();
-}
-
 ?>
 
-<form method="post" action="">
-    <input name="submit_button" type="submit" value=" Clear Shopping Cart " />
-</form>
+
 
 <span style="display:inline-block; height: 20px;"></span>
-
-      <img src="cart.png" alt="Einkaufswagen">
-
-<span style="display:inline-block; height: 20px;"></span>
-
-<div id="demoFont">B&amp;E Development</div>
 
 </body>
 </html>
