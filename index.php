@@ -94,7 +94,7 @@ if ($result->num_rows > 0) {
     echo "<table><tr><th>Ticket Nummer</th><th>Zuletzt geändert</th><th>Betreff</th><th>Eröffnet von</th><th>Priorität</th><th>Zuständig</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["number"]. "</td><td>" . $row["DATE_FORMAT"]. "</td><td>" . $row["subject"]. "</td><td>" . $row["name"]. "</td><td>" . $row["priority"]. "</td><td>" . $row["firstname"]. " " . $row["lastname"]. "</td></tr>";
+        echo "<tr><td>" . $row["number"]. "</td><td>" . $row["lastupdate"]. "</td><td>" . $row["subject"]. "</td><td>" . $row["name"]. "</td><td>" . $row["priority"]. "</td><td>" . $row["firstname"]. " " . $row["lastname"]. "</td></tr>";
     }
     echo "</table>";
 } else {
