@@ -87,14 +87,14 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "SELECT ost_ticket.number, DATE_FORMAT(lastupdate, '%d.%m.%Y'), ost_ticket__cdata.subject, ost_user.name, ost_ticket_priority.priority, ost_staff.firstname, ost_staff.lastname FROM `ost_ticket` INNER JOIN ost_ticket__cdata ON ost_ticket__cdata.ticket_id = ost_ticket.ticket_id INNER JOIN ost_user ON ost_user.id = ost_ticket.user_id INNER JOIN ost_ticket_priority ON ost_ticket_priority.priority_id = ost_ticket__cdata.priority INNER JOIN ost_staff ON ost_staff.staff_id = ost_ticket.staff_id WHERE closed IS NULL ORDER BY lastupdate DESC";
+$sql = "SELECT ost_ticket.number, ost_ticket.lastupdate, ost_ticket__cdata.subject, ost_user.name, ost_ticket_priority.priority, ost_staff.firstname, ost_staff.lastname FROM `ost_ticket` INNER JOIN ost_ticket__cdata ON ost_ticket__cdata.ticket_id = ost_ticket.ticket_id INNER JOIN ost_user ON ost_user.id = ost_ticket.user_id INNER JOIN ost_ticket_priority ON ost_ticket_priority.priority_id = ost_ticket__cdata.priority INNER JOIN ost_staff ON ost_staff.staff_id = ost_ticket.staff_id WHERE closed IS NULL ORDER BY lastupdate DESC";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     echo "<table><tr><th>Ticket Nummer</th><th>Zuletzt geändert</th><th>Betreff</th><th>Eröffnet von</th><th>Priorität</th><th>Zuständig</th></tr>";
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "<tr><td>" . $row["number"]. "</td><td>" . $row["lastupdate"]. "</td><td>" . $row["subject"]. "</td><td>" . $row["name"]. "</td><td>" . $row["priority"]. "</td><td>" . $row["firstname"]. " " . $row["lastname"]. "</td></tr>";
+        echo "<tr><td>" . $row["number"]. "</td><td>" . $row["DATE_FORMAT"]. "</td><td>" . $row["subject"]. "</td><td>" . $row["name"]. "</td><td>" . $row["priority"]. "</td><td>" . $row["firstname"]. " " . $row["lastname"]. "</td></tr>";
     }
     echo "</table>";
 } else {
