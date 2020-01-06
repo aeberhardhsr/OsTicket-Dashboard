@@ -112,3 +112,42 @@ p {
     font-size: 4.5em;
     padding-top: 40px;
   }
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 3px solid #1F2739;
+    padding-bottom: 1%;
+	padding-top: 1%;
+    padding-left:1%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 5px 5px 0 0;
+    overflow: hidden;
+    padding: 0 0 8em 0;
+}
+
+tr:nth-child(odd){
+    background-color: #323C50;    
+}
+
+tr:nth-child(even) {
+	background-color: #2C3446;
+}
+
+th {
+    font-weight: bold;
+	font-size: 1.5em;
+    text-align: left;
+    color: white;
+    background: #4DC3FA;
+}
+
+td {
+    font-size: 1.3em;
+    color: #f7f5f7
+}

@@ -53,6 +53,11 @@ th {
     background: #4DC3FA;
 }
 
+td {
+    font-size: 1.3em;
+    color: #f7f5f7
+}
+
 h1 {
   font-size:3em; 
   font-weight: 300;
@@ -78,10 +83,7 @@ p  {
   font-style: normal;
 }
 
-td {
-    font-size: 1.3em;
-    color: #f7f5f7
-}
+
 
 </style>
 </head>

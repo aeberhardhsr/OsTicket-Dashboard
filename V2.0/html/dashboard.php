@@ -15,11 +15,32 @@
 
             <div id="leftcolumn-box">
                 <div class="block color">
+                <div>
+                <?php
+                        $servername = "10.10.11.68";
+                        $username = "pma";
+                        $password = "pma";
+                        $dbname = "ost";
+                        
+                        // Create connection
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        // Check connection
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        
+                        $sql = "SELECT COUNT(ost_ticket.number) FROM `ost_ticket` WHERE closed IS NULL ORDER BY lastupdate DESC";
+                        $res = $conn->query($sql);
+                        $result = mysqli_fetch_array($res);                        
+                        $conn->close();
+                    ?>
+                </div>
                     <div class="heading-box">
                       Offene Tickets
                     </div>
-                    <div class="num">11</div>
+                    <div class="num"><?php echo $result[0]; ?></div>
                   </div>
+                  
             </div>
 
             
