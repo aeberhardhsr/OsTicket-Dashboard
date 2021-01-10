@@ -95,7 +95,7 @@ p  {
 <span style="display:inline-block; width: 10px;"></span>
 
 <?php
-$servername = "10.10.11.68";
+$servername = "localhost";
 $username = "pma";
 $password = "pma";
 $dbname = "ost";
