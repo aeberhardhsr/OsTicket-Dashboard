@@ -17,7 +17,7 @@
                 <div class="block color">
                 <div>
                 <?php
-                        $servername = "10.10.11.68";
+                        $servername = "localhost";
                         $username = "pma";
                         $password = "pma";
                         $dbname = "ost";
@@ -69,7 +69,7 @@
         <div id="ticket-view">
            <div id="ticket-table">
             <?php
-            $servername = "10.10.11.68";
+            $servername = "localhost";
             $username = "pma";
             $password = "pma";
             $dbname = "ost";
